@@ -1,0 +1,33 @@
+# to load the dataset
+data<- read.csv('HR_comma_sep (1).csv')
+#exploring the dataset
+dim(data)
+head(data)
+tail(data)
+summary(data)
+#to check for null values
+colSums(is.na(data)) 
+#checking for correlation
+cor(data[1:8])
+x<-data$number_project
+y<-data$average_montly_hours
+r<-cor(x,y)
+
+#deducing the values of the correlation coefficient
+if(r > 0){
+  print("the variables are positively correlated.")
+} else if (r < 0) {
+  print("the variables are negatively correlated.")
+} else{
+  print("the variables are not correlated.")
+}
+
+#liner_regression
+linearMod <-lm(data$number_project ~ data$average_montly_hours)
+ 
+print(linearMod)
+
+
+
+
+lm(Y ~ model) 
